@@ -1,16 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomButtom extends StatelessWidget {
   const CustomButtom({
-    super.key,
+    super.key, this.onTap,
   });
 
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 16),
         height: 50,
