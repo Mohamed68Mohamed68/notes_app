@@ -4,9 +4,9 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key, required this.color, required this.noteModel});
+  const NoteItem({super.key, required this.color, required this.note});
   final Color color;
-  final NoteModel noteModel;
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,7 +30,7 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                noteModel.title,
+                note.title,
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.black,
@@ -42,7 +42,7 @@ class NoteItem extends StatelessWidget {
                   bottom: 16,
                 ),
                 child: Text(
-                  noteModel.supTitle,
+                  note.supTitle,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black.withValues(alpha: 0.5),
@@ -50,7 +50,9 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: Icon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,
@@ -63,7 +65,7 @@ class NoteItem extends StatelessWidget {
                 right: 24,
               ),
               child: Text(
-                noteModel.date,
+                note.date,
                 style: TextStyle(
                   color: Colors.black.withValues(alpha: .5),
                   fontSize: 16,
