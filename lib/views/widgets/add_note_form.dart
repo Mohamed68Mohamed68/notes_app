@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/add%20note%20cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/views/widgets/colors_list_view.dart';
 import 'package:notes_app/views/widgets/custom_bottom.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
 
@@ -47,6 +48,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: 'Content',
             maxLines: 5,
           ),
+          ColorsListView(),
           SizedBox(
             height: 32,
           ),
@@ -63,9 +65,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                         title: title!,
                         supTitle: subTitle!,
-                        date: DateFormat.LLLL().format(currantDate) +
-                            ' ' +
-                            formatCurrantDate,
+                        date:
+                            '${DateFormat.LLLL().format(currantDate)} $formatCurrantDate',
                         color: Colors.blue.toARGB32());
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
