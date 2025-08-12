@@ -32,4 +32,4 @@ The app uses **BLoC (Cubit)** for state management and **Hive** for fast, lightw
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/flutter-notes-app.git
+git clone https://github.com/Mohamed68Mohamed68/notes_app.git
